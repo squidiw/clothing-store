@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import { ReactComponent as Logo } from "../../assets/4.3 crown.svg.svg";
 import "./header.styles.scss";
@@ -34,4 +35,10 @@ const Header = ({ currentUser }) => (
   </div>
 );
 
-export default Header;
+// state HERE IS THE ROOT REDUCER
+const mapStateToProps = (state) => ({
+  // currentUser IS THE PROP FOR THE HEADER, user IS THE obj prop IN ROOT REDUCER & currentUser IS THE obj prop IN user reducer
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(Header);
