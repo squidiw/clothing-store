@@ -1,43 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { ReactComponent as Logo } from "../../assets/4.3 crown.svg.svg";
-import "./header.styles.scss";
-import { auth } from "../../firebase/firebase.utils";
+import { auth } from '../../firebase/firebase.utils';
+
+import { ReactComponent as Logo } from '../../assets/crown.svg';
+
+import './header.styles.scss';
 
 const Header = ({ currentUser }) => (
-  <div className="header">
-    <Link to="/">
-      <Logo className="logo" />
+  <div className='header'>
+    <Link className='logo-container' to='/'>
+      <Logo className='logo' />
     </Link>
-    <div className="options">
-      <Link className="option" to="/shop">
+    <div className='options'>
+      <Link className='option' to='/shop'>
         SHOP
       </Link>
-
-      <Link className="option" to="/shop">
+      <Link className='option' to='/shop'>
         CONTACT
       </Link>
-
-      { currentUser ? (
-        <div className="option" onClick={() => auth.signOut()}>
-          {" "}
-          SIGN OUT{" "}
+      {currentUser ? (
+        <div className='option' onClick={() => auth.signOut()}>
+          SIGN OUT
         </div>
       ) : (
-        <Link className="option" to="/signin">
-          {" "}
-          SIGN IN{" "}
+        <Link className='option' to='/signin'>
+          SIGN IN
         </Link>
       )}
     </div>
   </div>
 );
 
-// state HERE IS THE ROOT REDUCER
-const mapStateToProps = (state) => ({
-  // currentUser IS THE PROP FOR THE HEADER, user IS THE obj prop IN ROOT REDUCER & currentUser IS THE obj prop IN user reducer
+const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 });
 
