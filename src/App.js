@@ -67,7 +67,8 @@ const mapStateToProps = ({ user }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // dispatch ITS A WAY FOR REDUX TO KNOW WHATEVER OBJECT IS BEING PASSED IN IS GOING TO BE AN ACTION OBJECT TO BE PASSED TO EVERY REDUCER
+  // dispatch ITS A WAY FOR REDUX TO KNOW WHATEVER OBJECT IS BEING PASSED
+  // IS GOING TO BE AN ACTION OBJECT TO BE PASSED TO EVERY REDUCER
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 

@@ -39,6 +39,7 @@ const Header = ({ currentUser, hidden }) => (
   </div>
 );
 
+// GET currentUser off user which in turn is being destructed off of the state same applies to cart
 const mapStateToProps = ({ user: { currentUser}, cart: {hidden} }) => ({
   currentUser,
   hidden
